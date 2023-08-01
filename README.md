@@ -11,6 +11,7 @@
 
 ### DONE
 1. V ./package.json -- set up "scripts" 
+2. V ./client/src-sw.js -- impliment service works to cache 
 
 ### legand
 ? = should be done
