@@ -1,18 +1,20 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
+
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: v Add CSS loaders and babel to webpack.
 
 module.exports = () => {
   return {
+    // sets grabs from our main js files
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      
     },
+    // new "dist" file with our new js file name
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -38,28 +40,28 @@ module.exports = () => {
         description: 'add notes and code offline',
         background_color: '#afafaf',
         theme_color: '#225ca3',
-        start_url: './',
-        publicPath: './',
+        start_url: '/index.html',
+        publicPath: '/',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
         ],
       }),
     ],
-
     module: {
       rules: [
         {
+          // loads css
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
+          // finds js file and user the babel loader to run ES6
           test: /\.m?js$/,
           exclude: /node_modules/,
-          // We use babel-loader in order to use ES6.
           use: {
             loader: 'babel-loader',
             options: {
