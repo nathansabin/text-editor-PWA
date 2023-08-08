@@ -24,7 +24,7 @@ JATE or Just Another Text Editor is a website that allows the user to enter text
   
 Click on the link below; when on the page, click on the large "Install!" button.
 
-https://thawing-caverns-55086-7863dab48b40.herokuapp.com
+https://jate-webapp-9936c0da971a.herokuapp.com
 
 ## Usage
 
